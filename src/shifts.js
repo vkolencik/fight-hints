@@ -1,29 +1,22 @@
 const ics = require('ics')
 
-export default function getShiftIcal() {
-
+function getShiftIcal () {
   const shiftData = [
-    '1d',
-    '4n',
-    '5n',
+    '1n',
+    '2n',
+    '5d',
     '6n',
     '9d',
     '10d',
-    '14n',
-    '15n',
-    '18d',
-    '19d',
-    '20d',
-    '23d',
-    '25n',
-    '27d',
+    '22d',
+    '23n',
+    '26n',
     '28d',
-    '29d',
-    '31n',
+    '29n'
   ]
 
-  const month = 12
-  const year = 2020
+  const month = 6
+  const year = 2022
 
   const createShiftEvent = ([day, type]) => ({
     start: [year, month, parseInt(day), type === 'd' ? 7 : 19, 0],
@@ -42,5 +35,11 @@ export default function getShiftIcal() {
 
   const { error, value } = ics.createEvents(shiftEvents)
 
+  if (error) {
+    throw error
+  }
+
   return value
 }
+
+module.exports = getShiftIcal

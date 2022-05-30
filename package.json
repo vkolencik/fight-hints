@@ -4,39 +4,14 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html",
-    "start": "parcel index.html",
-    "lint": "standardx",
-    "lint:fix": "standardx --fix"
+    "start": "node src/index.js",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   },
   "devDependencies": {
-    "eslint-config-standard-preact": "^1.1.6",
-    "parcel-bundler": "^1.12.4",
-    "standardx": "^7.0.0"
+    "standard": "^17.0.0"
   },
   "dependencies": {
-    "ics": "^2.26.2",
-    "js-base64": "^3.6.0",
-    "lodash": "^4.17.20",
-    "preact": "^10.5.11"
-  },
-  "alias": {
-    "react": "preact/compat",
-    "react-dom/test-utils": "preact/test-utils",
-    "react-dom": "preact/compat"
-  },
-  "eslintConfig": {
-    "extends": [
-      "standard",
-      "standard-preact"
-    ],
-    "rules": {
-      "no-unused-vars": [
-        0,
-        {
-          "varsIgnorePattern": "^(h|React)$"
-        }
-      ]
-    }
+    "ics": "^2.35.0"
   }
 }

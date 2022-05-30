@@ -1,6 +1,11 @@
-import React, { h, render } from 'preact'
-import App from './App'
+const fs = require('fs')
+const getShiftIcal = require('./shifts')
 
-window.onload = () => {
-  render(<App/>, document.getElementById('app'))
-}
+const shiftsIcal = getShiftIcal()
+
+fs.writeFile('shifts.ics', shiftsIcal, function (err, data) {
+  if (err) {
+    return console.log(err)
+  }
+  console.log(data)
+})
